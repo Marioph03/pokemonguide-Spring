@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PokemonguideApplication<pokemonguide>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.pokemonguide.springboot.pokemonguide.PokemonguideApplication",
+            "projectName": "pokemonguide",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

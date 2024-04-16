@@ -1,0 +1,21 @@
+body {
+    background-color: #101011;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+}
+
+.jumbotron p {
+    font-size: 1.5rem;
+}
+
+.navbar {
+    background-color: #e3350d;
+}
+
+.pokeball-icon {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 5px; 
+}
