@@ -1,16 +1,32 @@
 package com.example.pokemonguide.springboot.pokemonguide.models;
 
-import java.awt.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
+@Entity
+@Table(name = "item")
 public class Item {
+    @Id
     private String nombre;
+
+    @NotNull
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "numGeneracion_Generacion")
+    @NotNull
     private Generacion generacion;
-    private Image imagen;
+
+    @NotNull
+    private String imagen;
 
     public Item() {}
 
-    public Item(String nombre, String descripcion, Generacion generacion, Image imagen) {
+    public Item(String nombre, String descripcion, Generacion generacion, String imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.generacion = generacion;
@@ -41,11 +57,17 @@ public class Item {
         this.generacion = generacion;
     }
 
-    public Image getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Image imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    @Override
+    public String toString() {
+        return "Item [nombre=" + nombre + ", descripcion=" + descripcion + ", generacion=" + generacion + ", imagen="
+                + imagen + "]";
     }
 }

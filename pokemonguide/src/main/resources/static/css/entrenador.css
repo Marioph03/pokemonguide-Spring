@@ -1,0 +1,29 @@
+body {
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.card-title {
+    color: #ffcb05;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+.pokeball-icon {
+    width: 24px; 
+    height: 24px; 
+    margin-right: 5px; 
+}

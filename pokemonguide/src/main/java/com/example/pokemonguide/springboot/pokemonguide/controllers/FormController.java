@@ -64,7 +64,7 @@ public class FormController {
 
         model.addAttribute("titulo", "Register");
         model.addAttribute("usuario", usuario);
-        return "form";
+        return "formularios/form";
     }
 
     @InitBinder
@@ -134,7 +134,7 @@ public class FormController {
 
         if (result.hasErrors()) {
             model.addAttribute("titulo", "Resultado Register");
-            return "form";
+            return "formularios/form";
         }
 
         model.addAttribute("registroCompleto", true);
@@ -142,12 +142,14 @@ public class FormController {
         return "resultado";
     }
 
+
+
     @GetMapping("/ver")
     public String ver(@SessionAttribute(name = "usuario", required = false) Usuario usuario, Model model,
             SessionStatus status) {
 
         if (usuario == null) {
-            return "redirect:/form";
+            return "redirect:formularios/form";
         }
         model.addAttribute("titulo", "Resultado Register");
 

@@ -7,34 +7,33 @@
     <title>Página Principal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/css/item.css}" rel="stylesheet" type="text/css"> 
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bs-danger">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="https://cdn-icons-png.flaticon.com/512/287/287221.png"
-                    alt="Pokeball Icon" class="pokeball-icon"> Pokemon Guide </a>
+                    alt="Pokeball Icon" class="pokeball-icon"> Pokemon Items </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/pokemons}">Pokemon</a>
+                        <a class="nav-link" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/item}">Items</a>
+                        <a class="nav-link" href="#">Pokémon</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/gym-leader}">Líderes de Gimnasio</a>
+                        <a class="nav-link" href="#">Líderes de Gimnasio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/entrenador}">Entrenadores</a>
+                        <a class="nav-link" href="#">Entrenadores</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/form-user}">Registrarse</a>
+                        <a class="nav-link" href="#">Registrarse</a>
                     </li>
                 </ul>
                 <form class="d-flex">
@@ -45,52 +44,40 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container">
+        <h1 class="text-center mb-5">Items Pokémon</h1>
         <div class="row">
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
+                    <img src="https://img.pokemondb.net/artwork/berry/jaboca-berry.jpg" class="card-img-top"
+                        alt="Jaboca Berry">
                     <div class="card-body">
-                        <h5 class="card-title">Pokemon</h5>
-                        <p class="card-text">Información sobre Pokémon.</p>
+                        <h5 class="card-title">Jaboca Berry</h5>
+                        <p class="card-text">Una baya rara que se entrega a los Pokémon. Su piel está llena de sustancias dulces y pegajosas que pueden causar confusión si se consume.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
+                    <img src="https://img.pokemondb.net/artwork/berry/sitrus-berry.jpg" class="card-img-top"
+                        alt="Sitrus Berry">
                     <div class="card-body">
-                        <h5 class="card-title">Items</h5>
-                        <p class="card-text">Información sobre los Items.</p>
+                        <h5 class="card-title">Sitrus Berry</h5>
+                        <p class="card-text">Una baya que tiene un sabor jugoso y dulce. Se lleva a menudo como un snack.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col">
+            <div class="col-md-4">
                 <div class="card">
+                    <img src="https://img.pokemondb.net/artwork/item/razz-berry.jpg" class="card-img-top"
+                        alt="Razz Berry">
                     <div class="card-body">
-                        <h5 class="card-title">Líderes de Gimnasio</h5>
-                        <p class="card-text">Información sobre los Líderes de Gimnasio.</p>
+                        <h5 class="card-title">Razz Berry</h5>
+                        <p class="card-text">Una baya muy picante. Su piel es gruesa y amarga. Ayuda a Pokémon poco amistosos a confiarte.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Entrenadores</h5>
-                        <p class="card-text">Información sobre los Entrenadores.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bg-dark text-white py-4 mt-4">
-        <div class="container">
-            <h2>Información Adicional</h2>
-            <p>Aquí puedes encontrar más información sobre las diferentes secciones de la aplicación Pokémon.</p>
+            <!-- More cards can be added here -->
         </div>
     </div>
 </body>

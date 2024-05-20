@@ -1,45 +1,109 @@
 package com.example.pokemonguide.springboot.pokemonguide.models;
 
-import java.awt.*;
 import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "pokemon")
 public class Pokemon {
     private String nombre;
+
+    @OneToMany
+    @Column(name = "nombre_Tipo")
     private List<Tipo> listaTipos;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "num_pokedex ")
     private int numPokedex;
+
+    @Column(name = "num_Evolucion")
     private int numEvolucion;
+
+    @Column(name = "descripcion")
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "generacion_numGeneracion")
     private Generacion generacion;
-    private Image imagen;
+
+    private String imagen;
+
     private int nivel;
+
+    @ElementCollection
+    @Column(name = "nombre_movimiento")
     private List<Movimiento> movimientos;
+
+    @Column(name = "ps_base")
     private int psBase;
+
+    @Column(name = "ataque_base")
     private int ataqueBase;
+
+    @Column(name = "defensa_base")
     private int defensaBase;
+
+    @Column(name = "ataqueEspecial_base")
     private int ataqueEspecialBase;
+
+    @Column(name = "defensaEspecial_base")
     private int defensaEspecialBase;
+
+    @Column(name = "velocidad_base")
     private int velocidadBase;
+
+    @Column(name = "ps_maximo")
     private int psMaximo;
+
+    @Column(name = "ataque_maximo")
     private int ataqueMaximo;
+
+    @Column(name = "defensa_maximo")
     private int defensaMaximo;
+
+    @Column(name = "ataqueEspecial_maximo")
     private int ataqueEspecialMaximo;
+
+    @Column(name = "defensaEspecial_maximo")
     private int defensaEspecialMaximo;
+
+    @Column(name = "velocidad_maximo")
     private int velocidadMaximo;
+
     private int iv;
+
     private boolean shiny;
+
+    @ManyToOne
+    @JoinColumn(name = "nombre_habilidad")
     private Habilidad habilidad;
+
+    @ManyToOne
+    @JoinColumn(name = "nombre_naturaleza")
     private Naturaleza naturaleza;
 
-    public Pokemon(){}
+    public Pokemon() {
+    }
 
-    public Pokemon(String nombre, List<Tipo> listaTipos,int numPokedex, int numEvolucion,
-                   String descripcion, Generacion generacion, Image imagen,
-                   int nivel, List<Movimiento> movimientos,int psBase, int ataqueBase, int defensaBase,
-                   int ataqueEspecialBase, int defensaEspecialBase,
-                   int velocidadBase, int psMaximo, int ataqueMaximo,
-                   int defensaMaximo, int ataqueEspecialMaximo,
-                   int defensaEspecialMaximo, int velocidadMaximo, int iv,
-                   boolean shiny, Habilidad habilidad, Naturaleza naturaleza) {
+    public Pokemon(String nombre, List<Tipo> listaTipos, int numPokedex, int numEvolucion,
+            String descripcion, Generacion generacion, String imagen,
+            int nivel, List<Movimiento> movimientos, int psBase, int ataqueBase, int defensaBase,
+            int ataqueEspecialBase, int defensaEspecialBase,
+            int velocidadBase, int psMaximo, int ataqueMaximo,
+            int defensaMaximo, int ataqueEspecialMaximo,
+            int defensaEspecialMaximo, int velocidadMaximo, int iv,
+            boolean shiny, Habilidad habilidad, Naturaleza naturaleza) {
         this.nombre = nombre;
         this.listaTipos = listaTipos;
         this.numPokedex = numPokedex;
@@ -65,6 +129,34 @@ public class Pokemon {
         this.shiny = shiny;
         this.habilidad = habilidad;
         this.naturaleza = naturaleza;
+    }
+
+    public Pokemon(String nombre, int numEvolucion, String descripcion, String imagen, int nivel,
+            int psBase, int ataqueBase, int defensaBase, int ataqueEspecialBase, int defensaEspecialBase,
+            int velocidadBase,
+            int psMaximo, int ataqueMaximo, int defensaMaximo, int ataqueEspecialMaximo, int defensaEspecialMaximo,
+            int velocidadMaximo,
+            int iv, boolean shiny) {
+
+        this.nombre = nombre;
+        this.numEvolucion = numEvolucion;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.nivel = nivel;
+        this.psBase = psBase;
+        this.ataqueBase = ataqueBase;
+        this.defensaBase = defensaBase;
+        this.ataqueEspecialBase = ataqueEspecialBase;
+        this.defensaEspecialBase = defensaEspecialBase;
+        this.velocidadBase = velocidadBase;
+        this.psMaximo = psMaximo;
+        this.ataqueMaximo = ataqueMaximo;
+        this.defensaMaximo = defensaMaximo;
+        this.ataqueEspecialMaximo = ataqueEspecialMaximo;
+        this.defensaEspecialMaximo = defensaEspecialMaximo;
+        this.velocidadMaximo = velocidadMaximo;
+        this.iv = iv;
+        this.shiny = shiny;
     }
 
     public String getNombre() {
@@ -107,11 +199,11 @@ public class Pokemon {
         this.generacion = generacion;
     }
 
-    public Image getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Image imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
@@ -265,5 +357,18 @@ public class Pokemon {
 
     public void setMovimientos(List<Movimiento> movimientos) {
         this.movimientos = movimientos;
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemon [nombre=" + nombre + ", listaTipos=" + listaTipos + ", numPokedex=" + numPokedex
+                + ", numEvolucion=" + numEvolucion + ", descripcion=" + descripcion + ", generacion=" + generacion
+                + ", imagen=" + imagen + ", nivel=" + nivel + ", movimientos=" + movimientos + ", psBase=" + psBase
+                + ", ataqueBase=" + ataqueBase + ", defensaBase=" + defensaBase + ", ataqueEspecialBase="
+                + ataqueEspecialBase + ", defensaEspecialBase=" + defensaEspecialBase + ", velocidadBase="
+                + velocidadBase + ", psMaximo=" + psMaximo + ", ataqueMaximo=" + ataqueMaximo + ", defensaMaximo="
+                + defensaMaximo + ", ataqueEspecialMaximo=" + ataqueEspecialMaximo + ", defensaEspecialMaximo="
+                + defensaEspecialMaximo + ", velocidadMaximo=" + velocidadMaximo + ", iv=" + iv + ", shiny=" + shiny
+                + ", habilidad=" + habilidad + ", naturaleza=" + naturaleza + "]";
     }
 }

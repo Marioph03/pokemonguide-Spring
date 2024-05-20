@@ -1,12 +1,33 @@
 package com.example.pokemonguide.springboot.pokemonguide.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "movimiento")
 public class Movimiento {
+    @Id
     private String nombre;
+
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "numGeneracion_Generacion")
     private Generacion generacion;
+
+    @ManyToOne
+    @JoinColumn(name = "nombre_Tipo")
     private Tipo tipo;
+
     private int potencia;
+
+    @Column(name = "precision_value")
     private int precision;
+
     private String categoria;
 
     public Movimiento() {}
@@ -76,6 +97,13 @@ public class Movimiento {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Movimiento [nombre=" + nombre + ", descripcion=" + descripcion + ", generacion=" + generacion
+                + ", tipo=" + tipo + ", potencia=" + potencia + ", precision=" + precision + ", categoria=" + categoria
+                + "]";
     }
 }
 

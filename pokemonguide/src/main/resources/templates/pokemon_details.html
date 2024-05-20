@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalles de Pokémon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #f44336;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .pokemon-details {
+            margin-top: 20px;
+            background-image: url('https://i.pinimg.com/564x/b3/71/3f/b3713f89602f6dbdfd181b71d5c9c35d.jpg');
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .not-found {
+            text-align: center;
+            color: #f44336;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #f44336;
+        }
+
+        .back-link:hover {
+            color: #f44336;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles de Pokémon</h1>
+        <div th:if="${pokemon != null}" class="pokemon-details">
+            <p><strong>Nombre:</strong> <span th:text="${pokemon.nombre}"></span></p>
+            <p><strong>Descripción:</strong> <span th:text="${pokemon.descripcion}"></span></p>
+            <p><strong>Generación:</strong> <span th:text="${pokemon.generacion.descripcion}"></span></p>
+            <p><strong>Imagen:</strong> <img th:src="@{${pokemon.imagen}}" alt="Imagen de Pokémon"/></p>
+            <p><strong>Habilidad:</strong> <span th:text="${pokemon.habilidad.nombre}"></span></p>
+            <p><strong>Naturaleza:</strong> <span th:text="${pokemon.naturaleza.nombre}"></span></p>
+            <p><strong>Tipos:</strong> 
+                <ul>
+                    <li th:each="tipo : ${pokemon.listaTipos}" th:text="${tipo.nombre}"></li>
+                </ul>
+            </p>
+            <p><strong>Movimientos:</strong> 
+                <ul>
+                    <li th:each="movimiento : ${pokemon.movimientos}" th:text="${movimiento.nombre}"></li>
+                </ul>
+            </p>
+        </div>
+        <div th:if="${pokemon == null}" class="not-found">
+            <p>El Pokémon no existe.</p>
+        </div>
+        <a th:href="@{/pokemons}" class="back-link">Volver a la lista</a>
+    </div>
+</body>
+</html>

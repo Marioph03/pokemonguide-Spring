@@ -1,8 +1,15 @@
 package com.example.pokemonguide.springboot.pokemonguide.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "naturaleza")
 public class Naturaleza {
+    @Id
     private String nombre;
+    
     private String efecto;
 
     public Naturaleza() {
@@ -29,6 +36,9 @@ public class Naturaleza {
         this.efecto = efecto;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Naturaleza [nombre=" + nombre + ", efecto=" + efecto + "]";
+    }
 }
 
